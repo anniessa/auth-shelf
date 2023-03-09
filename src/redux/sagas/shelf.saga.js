@@ -39,10 +39,20 @@ function* addItemToShelf(action) {
   }
 }
 
+function* editItem(action) {
+  try {
+    yield axios.put(`/api/shelf/${action.payload.id}`, action.payload)
+    yield put({type: 'GET_ALL', payload: action.payload.id})
+  } catch (error) {
+    
+  }
+}
+
 // shelf saga function
 function* shelfSaga() {
   yield takeLatest('GET_ALL', getShelf);
   yield takeLatest('GET_SHELF_BY_ID', getShelfById);
+  yield takeLatest('EDIT_ITEM', editItem);
   yield takeLatest('ADD_ITEM', addItemToShelf);
   yield takeLatest('DELETE_ITEM_BY_ID', deleteItemById);
 }
