@@ -10,8 +10,8 @@ function ShelfItem({ item }) {
 
   return (
     <div>
-          <img src={item.image_url} />
-          <p>{item.description}</p>
+      <img src={item.image_url} />
+      <p>{item.description}</p>
       {item.user_id == user.id ? <button onClick={handleClick}>Delete</button> : ''}
     </div>
   );
