@@ -13,6 +13,10 @@ function Nav() {
         <h2 className="nav-title">Auth Shelf</h2>
       </Link>
       <div>
+
+        <Link className="navLink" to="/shelf">
+          The Shelf
+        </Link>
         {/* If no user is logged in, show these links */}
         {user.id === null &&
           // If there's no user, show login/registration links
@@ -24,13 +28,9 @@ function Nav() {
         {/* If a user is logged in, show these links */}
         {user.id && (
           <>
-            <Link className="navLink" to="/shelf">
-              The Shelf
-            </Link>
             <LogOutButton className="navLink" />
           </>
         )}
-
         <Link className="navLink" to="/about">
           About
         </Link>
