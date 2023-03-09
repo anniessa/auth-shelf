@@ -13,7 +13,7 @@ function* getShelf() {
 
 function* getShelfById(action) {
   try {
-    const response = yield axios.get(`/api/shelf/${action.payload.id}`)
+    const response = yield axios.get(`/api/shelf/${action.payload}`)
     yield put({type: 'SET_ALL', payload: response.data})
   } catch (error) {
     console.error('Error getting shelf by ID', error);
@@ -22,7 +22,7 @@ function* getShelfById(action) {
 
 function* deleteItemById(action) {
   try {
-    const response = yield axios.get(`/api/shelf/${action.payload.id}`)
+    const response = yield axios.get(`/api/shelf/${action.payload}`)
     yield put({ type: 'GET_ALL', payload: response.data })
   } catch (error) {
     console.error(error);
