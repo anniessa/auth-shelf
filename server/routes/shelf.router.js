@@ -61,11 +61,44 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
 		});
 });
 
+  // * EDIT DETAILS PUT REQUEST, by id
 /**
  * Update an item if it's something the logged in user added
  */
-router.put('/:id', (req, res) => {
-  // endpoint functionality
+router.put('/:id', rejectUnauthenticated, (req, res) => {
+  console.log(req.body);
+
+  // const updateEditQuery = `
+  // UPDATE "movies"
+  // SET "title" = $1, poster = $2, "description" = $3
+  // WHERE "id" = $4;`;
+
+  // pool
+  //   .query(updateEditQuery, [
+  //     req.body.title,
+  //     req.body.poster,
+  //     req.body.description,
+  //     req.params.id
+  //   ])
+  const sqlQuery = `
+  UPDATE item
+  SET description = $3, image_url = $4
+  WHERE id = $1 AND user_id = $2;
+  `;
+  pool.query(sqlQuery, [
+    req.params.id,
+    req.user.id,
+    req.body.description,
+    req.body.image_url
+  ])
+    .then((dbRes) => {
+      console.log("Edit item by id:", dbRes.rows);
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.error('error in edit details PUT', err);
+      res.sendStatus(500);
+    });
 });
 
 /**
