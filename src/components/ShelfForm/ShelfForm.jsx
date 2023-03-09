@@ -8,13 +8,16 @@ const dispatch = useDispatch();
 const [description,setDiscription] = useState('')
 const [imageUrl,setImageUrl] = useState('')
 
+const user = useSelector(store => store.user);
+
 const handleSubmit = event => {
     event.preventDefault()
     dispatch ({
         type: 'ADD_ITEM',
         payload : {
             description : description,
-            image_url : imageUrl
+            image_url : imageUrl,
+            user_id : user.id,
         }
     })
     setDiscription('')
