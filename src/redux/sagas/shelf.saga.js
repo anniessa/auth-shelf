@@ -20,10 +20,20 @@ function* getShelfById(action) {
   }
 }
 
+function* deleteItemById(action) {
+  try {
+    const response = yield axios.get(`/api/shelf/${action.payload.id}`)
+    yield put({type: 'GET_ALL', payload: response.data})
+  } catch (error) {
+    
+  }
+}
+
 // shelf saga function
 function* shelfSaga() {
-    yield takeLatest('GET_ALL', getShelf);
-    yield takeLatest('GET_SHELF_BY_ID', getShelfById);
+  yield takeLatest('GET_ALL', getShelf);
+  yield takeLatest('GET_SHELF_BY_ID', getShelfById);
+  yield takeLatest('DELETE_ITEM_BY_ID', deleteItemById);
 }
 
 //exporting the saga to the store

@@ -13,11 +13,11 @@ function ShelfList() {
   return (
     <div>
       <ul>
-        {shelf.map((item) => {
-          <li>
-            <ShelfItem key={item.id} item={item} />{" "}
-          </li>;
-        })}
+        {shelf.map((item) => (
+          <li key={item.id} >
+            <ShelfItem item={item} />{" "}
+          </li>
+        ))}
       </ul>
     </div>
   );

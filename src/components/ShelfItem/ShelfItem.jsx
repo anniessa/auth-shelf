@@ -1,16 +1,18 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function ShelfItem({ item }) {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const user = useSelector((store) => store.user);
 
   const handleClick = () => {
-    dispatch({ type: 'DELETE_ITEM', payload: item.id})
+    dispatch({ type: "DELETE_ITEM_BY_ID", payload: item.id });
   };
-  
+
   return (
     <div>
-      <h3>{item.id}</h3>
-      {item.id == user.id ? <button onCLick={handleClick}>Delete</button> : ''}
+          <img src={item.image_url} />
+          <p>{item.description}</p>
+      {item.user_id == user.id ? <button onClick={handleClick}>Delete</button> : ''}
     </div>
   );
 }
