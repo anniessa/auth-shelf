@@ -85,7 +85,7 @@ router.get('/count', (req, res) => {
 router.get('/:id', (req, res) => {
   const query = `
   SELECT * FROM item
-  WHERE id = $1;
+  WHERE user_id = $1;
   `
 
   pool.query(query, [req.params.id])
