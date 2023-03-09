@@ -49,9 +49,9 @@ pool.query(sqlQuery,sqlParams)
  */
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
   const sqlQuery = `
-  DELETE FROM "item" WHERE id = $1;
+  DELETE FROM "item" WHERE id = $1 AND "user_id" = $2;
   `;
-	pool.query(sqlQuery, [req.params.id])
+	pool.query(sqlQuery, [req.params.id, req.user.id])
     .then((dbRes) => {
       res.sendStatus(200);
     })
