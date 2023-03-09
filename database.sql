@@ -15,3 +15,13 @@ CREATE TABLE "item" (
     "image_url" VARCHAR (2083),
     "user_id" INT REFERENCES "user"
 );
+
+INSERT INTO "user" ("username", "password")
+VALUES('furby_master420', 'bingo'),
+('furbo', 'bop');
+
+INSERT INTO "item" ("description", "image_url", "user_id")
+VALUES('Bad Furby','https://upload.wikimedia.org/wikipedia/en/7/70/Furby_picture.jpg',1),
+('Sleepy Furby','https://upload.wikimedia.org/wikipedia/en/7/70/Furby_picture.jpg',1),
+('Sneezy Furby','https://upload.wikimedia.org/wikipedia/en/7/70/Furby_picture.jpg',1),
+('Dopey Furby','https://upload.wikimedia.org/wikipedia/en/7/70/Furby_picture.jpg',2);
