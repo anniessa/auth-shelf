@@ -6,7 +6,17 @@ const router = express.Router();
  * Get all of the items on the shelf
  */
 router.get('/', (req, res) => {
-  res.sendStatus(200); // For testing only, can be removed
+  const query = `
+  SELECT * FROM item;
+  `
+  pool.query(query)
+  .then((dbRes) => {
+    res.send(dbRes.rows);
+  })
+  .catch((error) => {
+    res.sendStatus(500);
+    console.error(error);
+  })
 });
 
 /**
@@ -35,14 +45,39 @@ router.put('/:id', (req, res) => {
  * they have added to the shelf
  */
 router.get('/count', (req, res) => {
-  // endpoint functionality
+  const query = `
+  SELECT "user".username, COUNT("item".user_id) from "user"
+  JOIN "item" ON "item".user_id = "user".id
+  GROUP BY "user".username;
+  `
+
+  pool.query(query)
+  .then((dbRes) => {
+    res.send(dbRes.rows);
+  })
+  .catch((err) => {
+    res.sendStatus(500);
+    console.error(err);
+  })
 });
 
 /**
  * Return a specific item by id
  */
 router.get('/:id', (req, res) => {
-  // endpoint functionality
+  const query = `
+  SELECT * FROM item
+  WHERE id = $1;
+  `
+
+  pool.query(query, [req.params.id])
+  .then((dbRes) => {
+    res.send(dbRes.rows);
+  })
+  .catch((error) => {
+    res.sendStatus(500);
+    console.error(error);
+  })
 });
 
 module.exports = router;
