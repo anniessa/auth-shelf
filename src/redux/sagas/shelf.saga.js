@@ -22,7 +22,7 @@ function* getShelfById(action) {
 
 function* deleteItemById(action) {
   try {
-    const response = yield axios.get(`/api/shelf/${action.payload}`)
+    const response = yield axios.delete(`/api/shelf/${action.payload}`)
     yield put({ type: 'GET_ALL', payload: response.data })
   } catch (error) {
     console.error(error);
