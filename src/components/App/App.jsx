@@ -110,6 +110,19 @@ function App() {
             }
           </Route>
 
+          <Route
+            exact
+            path="/:id"
+          >
+            // SHELF BY ID COMPONENT GOES HERE
+          </Route>
+          <ProtectedRoute
+          exact
+          path="/add"
+          >
+            // FORM COMPONENT GOES HERE
+          </ProtectedRoute>
+
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
             <h1>404</h1>
