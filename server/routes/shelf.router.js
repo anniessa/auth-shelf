@@ -8,7 +8,8 @@ const {rejectUnauthenticated} = require('../modules/authentication-middleware')
  */
 router.get('/', (req, res) => {
   const query = `
-  SELECT * FROM item;
+  SELECT * FROM item
+  ORDER BY id;
   `
   pool.query(query)
   .then((dbRes) => {
@@ -128,7 +129,8 @@ router.get('/count', (req, res) => {
 router.get('/:id', (req, res) => {
   const query = `
   SELECT * FROM item
-  WHERE user_id = $1;
+  WHERE user_id = $1
+  ORDER BY "item".id;
   `
 
   pool.query(query, [req.params.id])
