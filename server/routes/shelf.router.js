@@ -47,8 +47,18 @@ pool.query(sqlQuery,sqlParams)
 /**
  * Delete an item if it's something the logged in user added
  */
-router.delete('/:id', (req, res) => {
-  // endpoint functionality
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+  const sqlQuery = `
+  DELETE FROM "item" WHERE id = $1;
+  `;
+	pool.query(sqlQuery, [req.params.id])
+    .then((dbRes) => {
+      res.sendStatus(200);
+    })
+		.catch((err) => {
+			console.error('Error completing DELETE item query', err);
+			res.sendStatus(500);
+		});
 });
 
 /**
