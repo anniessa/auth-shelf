@@ -1,8 +1,8 @@
 const shelfReducer = (state = [], action) => {
     switch(action.type) {
-        case 'ADD_ITEM':
-            return [...state, action.payload];
-        case 'DELETE_ITEM':
+        case 'SET_ALL':
+            return action.payload;
+        case 'CLEAR_ALL':
             return [];
         default:
             return state
