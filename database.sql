@@ -17,8 +17,8 @@ CREATE TABLE "item" (
 );
 
 INSERT INTO "user" ("username", "password")
-VALUES('furby_master420', 'bingo'),
-('furbo', 'bop');
+VALUES('furby_master420', '$2a$10$fTiJxLjvScSX/EnStasXsOu6qdPipCM2fViFJOGEBJbrdNGztPf8u'),
+('furbfanatic', '$2a$10$8T1x0.EZniCwfy0AaITRku8cS9XacTsrNYBI2JuD6hdXY75zyfPi2');
 
 INSERT INTO "item" ("description", "image_url", "user_id")
 VALUES('Bad Furby','https://upload.wikimedia.org/wikipedia/en/7/70/Furby_picture.jpg',1),
