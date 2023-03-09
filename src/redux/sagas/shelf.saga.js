@@ -20,10 +20,21 @@ function* getShelfById(action) {
   }
 }
 
+//saga for adding new item
+function* addItemToShelf(action) {
+  try {
+    yield axios.post('/api/shelf', action.payload);
+    yield put({type: 'GET_ALL'});
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 // shelf saga function
 function* shelfSaga() {
     yield takeLatest('GET_ALL', getShelf);
     yield takeLatest('GET_SHELF_BY_ID', getShelfById);
+    yield takeLatest('ADD_ITEM', addItemToShelf);
 }
 
 //exporting the saga to the store
