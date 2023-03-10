@@ -31,8 +31,9 @@ function* deleteItemById(action) {
     let sweetResult = yield swal.
       fire({
         title: 'Are you sure you want to delete this item?',
-        confirmButtonColor: '#263567',
-        cancelButtonColor: '#a50104',
+        confirmButtonText: 'Delete',
+        confirmButtonColor: '#a50104',
+        cancelButtonColor: '#ab47bc',
         icon: 'question',
         showConfirmButton: true,
         showCancelButton: true
