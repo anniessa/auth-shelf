@@ -6,6 +6,7 @@ import {Button} from '@mui/material';
 function ShelfItem({ item }) {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
+  
 
   const [description, setDescription] = useState(item.description);
   const [imageUrl, setImageUrl] = useState(item.image_url);
