@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import {Button} from '@mui/material';
 
+
 function ShelfItem({ item }) {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
@@ -54,7 +55,7 @@ function ShelfItem({ item }) {
               }}
             />
                 <input type="submit" value="Submit" />
-                <button onClick={handleEdit}>Cancel</button>
+                <Button color='secondary' onClick={handleEdit}>Cancel</Button>
             </form>
         </>
       ) : (
@@ -62,12 +63,12 @@ function ShelfItem({ item }) {
           <img src={item.image_url} />
           <p>{item.description}</p>
           {item.user_id == user.id ? (
-            <button onClick={handleClick}>Delete</button>
+            <Button color='secondary' onClick={handleClick}>Delete</Button>
           ) : (
             ""
           )}
           {item.user_id == user.id ? (
-            <Button onClick={handleEdit}>Edit</Button>
+            <Button color='secondary' onClick={handleEdit}>Edit</Button>
           ) : (
             ""
           )}
