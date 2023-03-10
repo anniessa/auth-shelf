@@ -32,7 +32,8 @@ This App will give the users a option to post a picture and give it a descriptio
 1. Seach up a url and give it a description.
 1. The search results will be displayed on the DOM.
 1. Edit/Delete the image/description that you want.
-1. <img width="1437" alt="Screen Shot 2023-03-10 at 10 16 28 AM" src="https://user-images.githubusercontent.com/113937204/224367842-c9802560-5d06-4920-9a12-4f88eaddf306.png">
+1. <img width="721" alt="Screen Shot 2023-03-10 at 11 05 30 AM" src="https://user-images.githubusercontent.com/113937204/224378269-18f8a603-9716-4817-94c4-7436e4f29979.png">
+
 
 ---
 
