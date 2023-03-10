@@ -1,7 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import {Button} from '@mui/material';
-
+import {
+    Button,
+  Card,
+  CardMedia,
+  CardContent,
+  Typography,
+  Input,
+} from "@mui/material";
 
 function ShelfItem({ item }) {
   const dispatch = useDispatch();
@@ -19,8 +25,7 @@ function ShelfItem({ item }) {
   const handleEdit = () => {
     setEditing(!isEditing);
   };
-    
-    
+
   const handleEditSubmit = (event) => {
     event.preventDefault;
     dispatch({
@@ -35,46 +40,75 @@ function ShelfItem({ item }) {
   };
 
   return (
-    <div>
+    <Card sx={{ maxWidth: 240, ml: "10px", mr: "10px", mt: "5px", mb: "5px" }}>
       {isEditing ? (
         <>
-          <img src={item.image_url} />
-          <form onSubmit={handleEditSubmit}>
-            <input
-              placeholder="Image Url"
-              value={imageUrl}
-              onChange={(e) => {
-                setImageUrl(e.target.value);
-              }}
-            />
-            <input
-              placeholder="Description"
-              value={description}
-              onChange={(e) => {
-                setDescription(e.target.value);
-              }}
-            />
-                <input type="submit" value="Submit" />
-                <Button color='secondary' onClick={handleEdit}>Cancel</Button>
+          <CardMedia
+            sx={{
+              height: 240,
+              width: 240,
+            }}
+            component="img"
+            src={item.image_url}
+          />
+          <CardContent>
+            <form onSubmit={handleEditSubmit}>
+              <input
+                placeholder="Image Url"
+                value={imageUrl}
+                onChange={(e) => {
+                  setImageUrl(e.target.value);
+                }}
+              />
+              <input
+                placeholder="Description"
+                value={description}
+                onChange={(e) => {
+                  setDescription(e.target.value);
+                }}
+              />
+              <Input type="submit" value="Submit" />
+              <Button color="secondary" onClick={handleEdit}>
+                Cancel
+              </Button>
             </form>
+          </CardContent>
         </>
       ) : (
         <>
-          <img src={item.image_url} />
-          <p>{item.description}</p>
-          {item.user_id == user.id ? (
-            <Button color='secondary' onClick={handleClick}>Delete</Button>
-          ) : (
-            ""
-          )}
-          {item.user_id == user.id ? (
-            <Button color='secondary' onClick={handleEdit}>Edit</Button>
-          ) : (
-            ""
-          )}
+          <CardMedia
+            sx={{
+              height: 240,
+              width: 240,
+            }}
+            component="img"
+            src={item.image_url}
+          />
+          <CardContent>
+            <Typography>{item.description}</Typography>
+            {item.user_id == user.id ? (
+              <Button
+                variant="contained"
+                size="small"
+                color="secondary"
+                onClick={handleClick}
+              >
+                Delete
+              </Button>
+            ) : (
+              ""
+            )}
+            {item.user_id == user.id ? (
+              <Button variant="outlined" size="small" color="secondary" onClick={handleEdit}>
+                Edit
+              </Button>
+            ) : (
+              ""
+            )}
+          </CardContent>
         </>
       )}
-    </div>
+    </Card>
   );
 }
 

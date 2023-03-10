@@ -2,6 +2,9 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ShelfItem from "../ShelfItem/ShelfItem";
 import { useParams } from "react-router-dom";
+import Box from "@mui/material/Box";
+
+import './ShelfList.css'
 
 function ShelfList() {
   const dispatch = useDispatch();
@@ -17,15 +20,11 @@ function ShelfList() {
   }, [id]);
 
   return (
-    <div>
-      <ul>
+    <Box sx={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
         {shelf.map((item) => (
-          <li key={item.id} >
-            <ShelfItem item={item} />{" "}
-          </li>
+            <ShelfItem key={item.id} item={item} />
         ))}
-      </ul>
-    </div>
+    </Box>
   );
 }
 

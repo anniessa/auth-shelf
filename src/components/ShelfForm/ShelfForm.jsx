@@ -1,5 +1,6 @@
-import { useState } from "react"
-import { useSelector,useDispatch } from "react-redux"
+import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Input, Button, TextField } from "@mui/material";
 
 function ShelfForm () {
 
@@ -28,18 +29,19 @@ const handleSubmit = event => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <input
-                placeholder="Image Url"
+                <TextField label="Image URL" color="secondary" size="small" 
                 value={imageUrl}
                 onChange = { e =>{setImageUrl(e.target.value)}}
                 />
-                <input 
-                placeholder="Description"
+                <TextField label="Description" color="secondary" size="small" 
+
                 value = {description}
                 onChange = {e =>{setDiscription(e.target.value)}}/>
-                <input 
+                <Button
+                variant="contained"
+                color="secondary" size="normal"    
                 type="submit"
-                value= "submit" />
+                value= "Submit">Submit</Button>
             </form>
         </div>
     )

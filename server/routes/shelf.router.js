@@ -69,18 +69,6 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
 router.put('/:id', rejectUnauthenticated, (req, res) => {
   console.log(req.body);
 
-  // const updateEditQuery = `
-  // UPDATE "movies"
-  // SET "title" = $1, poster = $2, "description" = $3
-  // WHERE "id" = $4;`;
-
-  // pool
-  //   .query(updateEditQuery, [
-  //     req.body.title,
-  //     req.body.poster,
-  //     req.body.description,
-  //     req.params.id
-  //   ])
   const sqlQuery = `
   UPDATE item
   SET description = $3, image_url = $4
