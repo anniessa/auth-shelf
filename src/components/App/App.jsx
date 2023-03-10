@@ -112,7 +112,7 @@ function App() {
 
           <Route
             exact
-            path="/:id"
+            path="/shelf/:id"
           >
             <ShelfPage />
           </Route>
