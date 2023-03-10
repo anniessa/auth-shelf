@@ -5,11 +5,12 @@ _Duration: 1 day Sprint_
 
 This App will give the users a option to post a picture and give it a description. Once you post the picture, it will give you the option to Edit/Delete.
 
-To see the fully functional app, please visit: [DEPLOYED VERSION OF APP](www.heroku.com)
+To see the fully functional app, please visit: [DEPLOYED VERSION OF APP](https://fathomless-waters-19516.herokuapp.com/)
 
 ---
 ## Screen Shots
-
+![Screen Shot 2023-03-10 at 1 05 28 PM](https://user-images.githubusercontent.com/98715838/224418413-9ca8e94d-ce62-49cb-86e1-2647b23957f8.png)
+![Screen Shot 2023-03-10 at 1 04 13 PM](https://user-images.githubusercontent.com/98715838/224418456-4e5f8782-ba5b-4dcc-8b4c-416f84a7d4fe.png)
 ---
 ## **TABLE OF CONTENTS:**
 1. [Installation & Setup](#installation--setup)
