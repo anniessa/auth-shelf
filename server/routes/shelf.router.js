@@ -62,7 +62,7 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
 		});
 });
 
-  // * EDIT DETAILS PUT REQUEST, by id
+  // * EDIT PUT REQUEST, by id
 /**
  * Update an item if it's something the logged in user added
  */
