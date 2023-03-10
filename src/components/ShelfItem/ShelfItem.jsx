@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
+import {Button} from '@mui/material';
 
 function ShelfItem({ item }) {
   const dispatch = useDispatch();
@@ -66,7 +67,7 @@ function ShelfItem({ item }) {
             ""
           )}
           {item.user_id == user.id ? (
-            <button onClick={handleEdit}>Edit</button>
+            <Button onClick={handleEdit}>Edit</Button>
           ) : (
             ""
           )}
